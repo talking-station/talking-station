@@ -1,0 +1,41 @@
+
+
+.head_main_container {
+    width: 650px;
+    height: 150px;
+    background-image: linear-gradient(#95D264,#B7DF90, #DAECC1 ,#FDFAF1);
+}
+
+.main_container_login {
+    background-color: #FDFAF1;
+    width: 650px;
+    height: 600px;
+    /* text-align: center; */
+
+}
+
+.login {
+    /* width: 400px; */
+    padding: 100px;
+    margin: auto;
+    display: grid;
+    /* grid-template-columns: repeat(3, 1fr); */
+    /* grid-template-rows: repeat(2, 25px); */
+    grid-template-columns: repeat(1, 80px 1fr 70px);
+    gap: 10px;
+    
+}
+
+a {
+    color: #6681DC;
+    text-decoration: none;
+}
+
+.main_container_login_save {
+    text-align: center;
+}
+
+.membership {
+    text-align: center;
+}
+

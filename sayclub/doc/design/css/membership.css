@@ -1,0 +1,56 @@
+.head_main_container {
+    width: 650px;
+    height: 150px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-image: linear-gradient(#95D264,#B7DF90, #DAECC1 ,#FDFAF1);
+}
+
+.main_container {
+    background-color: #FDFAF1;
+    width: 650px;
+    height: 650px;
+
+
+}
+
+/* 입력란 */
+.membership {
+    font-size: 16px;
+    display: grid;
+    
+}
+
+
+input {
+    height: 25px;
+    padding: 2px;
+    margin: 5px;
+}
+
+
+
+.num_mid::-webkit-inner-spin-button
+, .num_end::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+
+/* 이용약관 */
+.article {
+    width: 400px;
+    height: 130px;
+    border: none;
+    resize: none;
+    outline: none;
+
+}
+
+/* 버튼 */
+button {
+    background-color: #95D264;
+    width: 80px;
+    height: 25px;
+}
