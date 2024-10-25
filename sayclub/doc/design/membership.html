@@ -10,8 +10,10 @@
     <div class="main_container">
         <div class="head_main_container">
             <h1>회원가입</h1>
+            <img src="./img/logo_sarangbang.png" alt="" width="300px" height="120px">
         </div>
         <div class="membership">
+            <form action="">
             <div class="item">
                 <label for="name">이름</label>
                 <input type="text" id="name" required autofocus>
@@ -52,17 +54,19 @@
             <div class="item">
                 <p>이용약관</p>
                 <textarea class="article" name="article" id="article" readonly>여러분 환영합니다</textarea>
-                <br>
+                <div class="agree">
+                    <input type="radio" name= "agree" id="agree" checked>
                 <label for="agree">동의함</label>
-                <input type="radio" id="agree" checked>
-                <label for="unagree">동의안함</label>
-                <input type="radio" id="unagree">
+                <input type="radio" name= "agree" id="unagree">
+                <label for="agree">동의안함</label>
+                </div>
             </div>
         </div>
         <div class="footer_main_container">
-            <button>가입완료</button>
-            <button>취소</button>
+            <a href=""><button type="submit">가입완료</button></a>
+            <a href="../design/login.html"><button type="button">취소</button></a>
         </div>
+    </form>
     </div>
 </body>
 </html>
