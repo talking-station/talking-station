@@ -1,3 +1,5 @@
+/* 폰트 */
+
 /* 헤드라인 */
 .head_main_container {
     width: 650px;
@@ -9,14 +11,30 @@
     background-image: linear-gradient(#95D264,#B7DF90, #DAECC1 ,#FDFAF1);
 }
 
-
+/* 회원가입 전체 박스 */
 .main_container {
     background-color: #FDFAF1;
     width: 650px;
-    height: 700px;
+    height: 800px;
 }
 
+
 /* 입력란 */
+.item {
+    display: flex;
+    gap: 10px;
+    margin: 20px;
+
+}
+
+.label {
+    background-color: #95D264;
+    border: solid 1px #000;
+    width: 90px;
+    height: 30px;
+    text-align: center;
+}
+
 .membership {
     font-size: 16px;
     display: grid;
@@ -25,21 +43,22 @@
 }
 
 
-.item > input {
-    height: 25px;
-    padding: 2px;
-    margin: 5px;
 
-}
-
-
+/* 휴대폰 입력란 */
 .num_mid::-webkit-inner-spin-button
 , .num_end::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
 
+.num_blank {
+    width: 70px;
+    text-align: center;
+}
+
 
 /* 이용약관 */
+
+
 .article {
     color: #bebebe;
     width: 400px;
@@ -48,6 +67,11 @@
     resize: none;
     outline: none;
 }
+
+.agree > label {
+    margin-right: 30px;
+}
+
 
 /* 버튼 */
 .agree {
@@ -67,5 +91,6 @@ button {
     background-color: #95D264;
     box-shadow: #23291f;
     width: 80px;
-    height: 25px;
+    height: 30px;
+
 }
