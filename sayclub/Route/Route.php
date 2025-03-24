@@ -1,5 +1,6 @@
 <?php
 namespace Route;
+use Controllers\UserController;
 
 class Route {
     
@@ -10,7 +11,7 @@ class Route {
         // 요청 경로 확인
         if($url === 'login') {
             if($httpMethod === 'GET') {
-                
+                new UserController('goLogin'); 
             } else if($httpMethod === 'POST') {
 
             }
