@@ -1,0 +1,13 @@
+Options -MultiViews
+RewriteEngine On 
+; RewriteEngine On :url 중에서 login 같은 부분만 파라미터로 지정할 수 있음 
+
+Options -Indexes
+;Options -Indexes: index.php가 출력되지 않고 에러페이지로 이동
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+;url와 path 부분을 분리
+
+RewriteRule ^(.+)$ index.php?url=$1 [QSA,L] 
+
