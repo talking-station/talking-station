@@ -18,16 +18,21 @@
                 <li><a href="">정보</a></li>
             </ul>
             <div class="header_box">
-                <img src="./img/character_boy.png" alt="">
-                <div class="header_box_title">
-                    <div class="header_right">
-                        <p>www.talking-station.com</p>
-                        <p>▶ OrOILoveYou (온라인)</p>
-                        <p>널 지켜줄게 영원히 !!!</p>
+                <img class="profile_img" src="./img/character_boy.png">
+                <div class="header_content">
+                    <div class="header_box_title">
+                        <div class="header_right">
+                            <p>www.talking-station.com</p>
+                            <p>▶ OrOILoveYou (온라인)</p>
+                            <p class="profile_comment">널 지켜줄게 영원히 !!!</p>
+                        </div>
+                        <div class="header_icon">
+                            <a href=""><img src="./img/home_pixel.png" alt=""> (0)</a>
+                            <a href=""><img src="./img/chat_pixel.png" alt=""> (0)</a>
+                        </div>
                     </div>
-                    <div class="header_icon">
-                        <a href=""><img src="./img/home_pixel.png" alt=""> (0)</a>
-                        <a href=""><img src="./img/chat_pixel.png" alt=""> (0)</a>
+                    <div class="header_btn">
+                        <button id="btnToggleHeader">▲</button>
                     </div>
                 </div>
             </div>
@@ -47,11 +52,10 @@
                 <div class="friends_content">
                     <div class="friends">
                         <div class="title">
-                            <!-- <button id="toggleButton">▼</button> -->
-                            <button class="btn_toggle" id="btnToggle">▼</button>
+                            <button id="btnToggleNow">▼</button>
                             <div class="title_message">친구 (0/3)</div>
                         </div>
-                        <div class="friend_list">
+                        <div class="friend_list" id="friends_now">
                             <p><a href="">친구1</a></p>
                             <p><a href="">친구2</a></p>
                             <p><a href="">친구3</a></p>
@@ -68,15 +72,15 @@
                     </div>
                     <div class="recommend">
                         <div class="title">
-                            <button class="btn_toggle">▼</button>
+                            <button id="btnToggleRecommend">▼</button>
                             <div class="title_message">추천 상대</div>
                         </div>
-                        <div class="friend_list">
-                            <p>에이 (46세 / 비공개)</p>
-                            <p>김미란 (43세 / 비공개)</p>
-                            <p>예솔 (43세 / 비공개)</p>
-                            <p>진짜루 (45세 / 비공개)</p>
-                            <p>이성숙 (46세 / 비공개)</p>
+                        <div class="friend_list" id="friends_recommend">
+                            <p><a href="">에이 (46세 / 비공개)</a></p>
+                            <p><a href="">김미란 (43세 / 비공개)</a></p>
+                            <p><a href="">김미란 (43세 / 비공개)</a></p>
+                            <p><a href="">진짜루 (45세 / 비공개)</a></p>
+                            <p><a href="">이성숙 (46세 / 비공개)</a></p>
                         </div>
                     </div>
                 </div>

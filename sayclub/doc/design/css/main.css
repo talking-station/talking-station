@@ -51,16 +51,22 @@ input {
     border-bottom: 1px solid #8DAF7E;
 }
 
-.header_box img{
+.profile_img{
     width: 150px;
     height: 200px;
+}
+
+.header_content {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
 }
 
 .header_box_title{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
 }
 
 .header_right > p:nth-child(1){
@@ -96,6 +102,24 @@ input {
 .header_icon img{
     width: 20px;
     height: 20px;
+}
+
+.header_btn {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.header_btn button {
+    background-color: #D1EE9E;
+    border-radius: 50px;
+    width: 20px;
+    height: 20px;
+    color: #2A8709;
+}
+
+/* toggle header 높이 조절 */
+.header_height {
+    height: 150px;
 }
 
 
@@ -166,26 +190,25 @@ input {
     overflow-y: scroll;
 }
 
+/* 스크롤바 */
 .friends_content::-webkit-scrollbar {
     width: 8px;
 }
 
 .friends_content::-webkit-scrollbar-thumb {
     background-color: #adafb180;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     background-clip: border-box;
     border: 2px solid transparent;
 }
 
 .friends_content::-webkit-scrollbar-track {
     background-color: rgba(211, 211, 211, 0.514);
-    border-radius: 10px;
-    box-shadow:
-    inset 0px 0px 5px white;
+    box-shadow: inset 0px 0px 5px white;
 }
 
 .friends, .recommend{
-    margin: 10px 10px 20px 10px;
+    margin: 20px;
 }
 
 .title{
@@ -203,7 +226,7 @@ input {
     width: 20px;
     height: 20px;
     color: #2A8709;
-    text-align: center;
+    /* text-align: center; */
 }
 
 .friend_list {
@@ -215,18 +238,9 @@ input {
     display: none;
 }
 
-/* .friends p {
-    color: #615f5f;
-    padding-left: 30px;
-} */
-
-/* .recommend{
-    font-size: 1.3rem;
-} */
-
-/* .friends_now p{
-    padding: 3px 30px;
-} */
+.friend_list p {
+    margin-bottom: 3px;
+}
 
 
 /* footer */
@@ -240,27 +254,30 @@ input {
     border-bottom: 1px solid #CDCBCC;
     padding: 10px;
     width: 570px;
-    /* display: grid;
-    grid-template-columns: 2fr .8fr 1.2fr 100px; */
     display: flex;
     justify-content: space-between;
+}
+
+.friend_btn button{
+    border: 1px solid #CDCBCC;
+    padding: 5px 10px;
+    border-radius: 10px;
 }
 
 .emoji_left{
     display: flex;
     gap: 10px;
+    align-items: center;
+}
+
+.emoji_line {
+    color: #a8a8a8;
 }
 
 .emoji_right{
     display: flex;
     gap: 10px;
-}
-
-.friend_btn button{
-    /* width: 80px; */
-    border: 1px solid #CDCBCC;
-    padding: 5px 10px;
-    border-radius: 10px;
+    align-items: center;
 }
 
 .footer_menu img{
@@ -269,9 +286,12 @@ input {
 }
 
 .btn_next button{
-    border: 1px solid #CDCBCC;
+    /* border: 1px solid #CDCBCC;
     padding: 5px;
-    border-radius: 20px;
+    border-radius: 20px; */
+    background-color: transparent;
+    font-weight: 600;
+    color: #a8a8a8;
 }
 
 .footer_item{
