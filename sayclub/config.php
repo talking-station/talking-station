@@ -1,7 +1,8 @@
 <?php
 // 기본 경로 설정
 define('_ROOT', $_SERVER['DOCUMENT_ROOT']);
-define('_PATH_IMG', '/view/img'); // 이미지 경로
+define('_PATH_VIEW', '/View'); // 뷰 경로
+define('_PATH_IMG', '/View/img'); // 이미지 경로
 
 //MariaDB 설정
 define('_MARIA_DB_HOST', 'localhost');
