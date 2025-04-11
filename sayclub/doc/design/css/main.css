@@ -1,3 +1,4 @@
+/* 공통 */
 *{
     margin: 0;
     padding: 0;
@@ -27,6 +28,10 @@ input {
     height: 900px;
     background-color: #F8F5EC;
     margin: 0 auto;
+}
+
+li {
+    list-style-type: none;
 }
 
 
@@ -203,7 +208,7 @@ input {
 }
 
 .friends_content::-webkit-scrollbar-track {
-    background-color: rgba(211, 211, 211, 0.514);
+    /* background-color: rgba(211, 211, 211, 0.514); */
     box-shadow: inset 0px 0px 5px white;
 }
 
@@ -226,29 +231,111 @@ input {
     width: 20px;
     height: 20px;
     color: #2A8709;
-    /* text-align: center; */
 }
 
+.title button img {
+    width: 10px;
+}
+
+/* 친구 목록 */
 .friend_list {
     display: block; 
     margin-left: 30px;
 }
 
+.friend_list img {
+    width: 20px;
+    height: 20px;
+}
+
+.friend_item {
+    margin-bottom: 3px;
+    display: flex;
+    gap: 5px;
+}
+
+.friend_name {
+    cursor: pointer;
+}
+
+.freind_menu {
+    display: none;
+}
+
+.friend_item span {
+    cursor: pointer;
+}
+
+.friend_menu_modal {
+    display: block;
+
+}
+
+/* 더보기, 간략히 버튼 */
+.btn_show {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.btn_show button {
+    width: 50px;
+    height: 22px;
+    border-radius: 10px;
+    background-color: #f5f2e9;
+    color: #535353;
+}
+
+.btn_show button:hover {
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.2);
+    transform: translateY(-1px);
+}
+
+/* 친구 목록 버튼 토글시 */
 .friend_list_hide {
     display: none;
 }
 
-.friend_list p {
-    margin-bottom: 3px;
+
+/* modal */
+.modal_container {
+    position: absolute;
+    display: none;
+    z-index: 999;
+    background: white;
+    border: 1px solid #000;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    padding: 5px;
+}
+
+/* .modal_content {
+    border: 1px solid red;
+    width: fit-content;
+    padding: 5px 10px;
+} */
+
+.modal_friends_menu li:hover {
+    background-color: #0A246A;
+    color: #fff;
+}
+
+.modal_friends_menu > li > span {
+    cursor: pointer;
+    padding: 0 10px;
+}
+
+.modal_hr {
+    color: #ff0000;
+}
+
+.modal_item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 
 /* footer */
-
-/* .footer{
-    position: fixed;
-} */
-
 .footer_menu{
     border-top: 1px solid #CDCBCC;
     border-bottom: 1px solid #CDCBCC;

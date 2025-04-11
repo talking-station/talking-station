@@ -18,7 +18,8 @@
                 <li><a href="">정보</a></li>
             </ul>
             <div class="header_box">
-                <img class="profile_img" src="./img/character_boy.png">
+                <!-- <img class="profile_img" src="./img/character_boy.png"> -->
+                <button><img class="profile_img" src="./img/character_boy.png"></button>
                 <div class="header_content">
                     <div class="header_box_title">
                         <div class="header_right">
@@ -52,27 +53,78 @@
                 <div class="friends_content">
                     <div class="friends">
                         <div class="title">
-                            <button id="btnToggleNow">▼</button>
+                            <button id="btnToggleNow"><img src="./img/btn_triangle.png" alt=""></button>
                             <div class="title_message">친구 (0/3)</div>
                         </div>
                         <div class="friend_list" id="friends_now">
-                            <p><a href="">친구1</a></p>
-                            <p><a href="">친구2</a></p>
-                            <p><a href="">친구3</a></p>
-                            <p><a href="">친구4</a></p>
-                            <p><a href="">친구5</a></p>
-                            <p><a href="">친구6</a></p>
-                            <p><a href="">친구7</a></p>
-                            <p><a href="">친구8</a></p>
-                            <p><a href="">친구9</a></p>
-                            <p><a href="">친구10</a></p>
-                            <p><a href="">친구11</a></p>
-                            <button class="show_more">더보기</button>
+                            <div class="friend_item">
+                                <img src="./img/chat_profile.png" alt="">
+                                <p class="friend_name">친구1</p>
+                                <!-- <ul class="freind_menu">
+                                    <li><span>대화하기</span></li>
+                                    <li><span>쪽지보내기</span></li>
+                                    <li><span>친구이동</span></li>
+                                    <li><span>친구복사</span></li>
+                                    <li><span>친구에서 제외</span></li>
+                                </ul> -->
+                            </div>
+                            <div class="friend_item">
+                                <img src="./img/chat_profile.png" alt="">
+                                <p class="friend_name">친구2</p>
+                            </div>
+                            <div class="friend_item">
+                                <img src="./img/chat_profile.png" alt="">
+                                <p class="friend_name">친구3</p>
+                            </div>
+                            <div class="friend_item">
+                                <img src="./img/chat_profile.png" alt="">
+                                <p class="friend_name">친구4</p>
+                            </div>
+                            <div class="friend_item">
+                                <img src="./img/chat_profile.png" alt="">
+                                <p class="friend_name">친구5</p>
+                            </div>
+                            <div class="friend_item">
+                                <img src="./img/chat_profile.png" alt="">
+                                <p class="friend_name">친구6</p>
+                            </div>
+                            <div class="friend_item">
+                                <img src="./img/chat_profile.png" alt="">
+                                <p class="friend_name">친구7</p>
+                            </div>
+                            <div class="friend_item">
+                                <img src="./img/chat_profile.png" alt="">
+                                <p class="friend_name">친구8</p>
+                            </div>
+                            <div class="friend_item">
+                                <img src="./img/chat_profile.png" alt="">
+                                <p class="friend_name">친구9</p>
+                            </div>
+                            <div class="friend_item">
+                                <img src="./img/chat_profile.png" alt="">
+                                <p class="friend_name">친구10</p>
+                            </div>
+                            <div class="friend_item">
+                                <img src="./img/chat_profile.png" alt="">
+                                <p class="friend_name">친구11</p>
+                            </div>
+                            <div class="friend_item">
+                                <img src="./img/chat_profile.png" alt="">
+                                <p class="friend_name">친구12</p>
+                            </div>
+                            <div class="friend_item">
+                                <img src="./img/chat_profile.png" alt="">
+                                <p class="friend_name">친구13</p>
+                            </div>
+                            <div class="btn_show">
+                                <button class="show_more">더보기</button>
+                                <button class="show_less">간략히</button>
+                            </div>
                         </div>
                     </div>
                     <div class="recommend">
                         <div class="title">
-                            <button id="btnToggleRecommend">▼</button>
+                            <button id="btnToggleRecommend"><img src="./img/btn_triangle.png" alt=""></button>
                             <div class="title_message">추천 상대</div>
                         </div>
                         <div class="friend_list" id="friends_recommend">
@@ -115,6 +167,37 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- modal -->
+    <div class="modal_container">
+        <div class="modal_content">
+            <ul class="modal_friends_menu">
+                <li><span>대화하기</span></li>
+                <li><span>쪽지보내기</span></li>
+                <li><span>파일보내기</span></li>
+                <li><hr class="modal_hr"></li>
+                <li>
+                    <span class="modal_item">
+                        <span>친구이동</span>
+                        <span>▶</span>
+                    </span>
+                </li>
+                <li>
+                    <span class="modal_item">
+                        <span>친구복사</span>
+                        <span>▶</span>
+                    </span>
+                </li>
+                <li><span>친구에서 제외</span></li>
+                <li><span>"헤.연.위"그룹에서 제외</span></li>
+                <li><span>블랙리스트에 추가</span></li>
+                <li><span>신고하기</span></li>
+                <li><hr></li>
+                <li><span>사용자 정보</span></li>
+                <li><span>홈피 보기</span></li>
+            </ul>
         </div>
     </div>
 </body>
