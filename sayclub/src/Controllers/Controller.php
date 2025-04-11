@@ -3,7 +3,6 @@
 namespace Controllers;
 
 class Controller {
-    
     public function __construct(string $action) {
         // 세션 시작
 
@@ -23,11 +22,7 @@ class Controller {
         if(strpos($path, 'Location:') === 0) {
             header($path);
         } else {
-            require_once(_PATH_VIEW.'/'/$path);
+            require_once(_PATH_VIEW.'/'.$path); // 250411 이경진 /$path -> .$path 수정
         }
-
-        
     }
-
-    
 }

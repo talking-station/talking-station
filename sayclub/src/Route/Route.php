@@ -1,6 +1,7 @@
 <?php
 namespace Route;
 use Controllers\UserController;
+use Controllers\MateController;
 
 class Route {
     
@@ -14,6 +15,10 @@ class Route {
                 new UserController('goLogin'); 
             } else if($httpMethod === 'POST') {
 
+            }
+        } else if($url === 'main'){
+            if($httpMethod === 'GET'){
+                new MateController('main');
             }
         }
     }

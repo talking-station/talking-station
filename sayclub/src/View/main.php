@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/View/css/main.css">
+    <script src="/View/js/main.js" defer></script>
+    <title>사랑방</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <ul class="header_menu">
+                <li><a href="">일반</a></li>
+                <li><a href="">동작</a></li>
+                <li><a href="">친구</a></li>
+                <li><a href="">설정</a></li>
+                <li><a href="">정보</a></li>
+            </ul>
+            <div class="header_box">
+                <!-- <img class="profile_img" src="./img/character_boy.png"> -->
+                <button><img class="profile_img" src="/View/img/character_boy.png"></button>
+                <div class="header_content">
+                    <div class="header_box_title">
+                        <div class="header_right">
+                            <p>www.talking-station.com</p>
+                            <p>▶ OrOILoveYou (온라인)</p>
+                            <p class="profile_comment">널 지켜줄게 영원히 !!!</p>
+                        </div>
+                        <div class="header_icon">
+                            <a href=""><img src="/View/img/home_pixel.png" alt=""> (0)</a>
+                            <a href=""><img src="/View/img/chat_pixel.png" alt=""> (0)</a>
+                        </div>
+                    </div>
+                    <div class="header_btn">
+                        <button id="btnToggleHeader">▲</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="main_side">
+                <div class="main_side_bar">
+                    <div><a href="">TACHY</a></div>
+                    <div><a href="">FILE</a></div>
+                    <div><a href="">HOMPY</a></div>
+                    <div><a href="">MALL</a></div>
+                    <div><a href="">GAME</a></div>
+                    <div><a href="">G마켓</a></div>
+                </div>
+            </div>
+            <div class="main_content">
+                <div class="friends_content">
+                    <div class="friends">
+                        <div class="title">
+                            <button id="btnToggleNow"><img src="/View/img/btn_triangle.png" alt=""></button>
+                            <div class="title_message">친구 (0/3)</div>
+                        </div>
+                        <div class="friend_list" id="friends_now">
+                            <div class="friend_item">
+                                <img src="/View/img/chat_profile.png" alt="">
+                                <p class="friend_name">친구1</p>
+                                <!-- <ul class="freind_menu">
+                                    <li><span>대화하기</span></li>
+                                    <li><span>쪽지보내기</span></li>
+                                    <li><span>친구이동</span></li>
+                                    <li><span>친구복사</span></li>
+                                    <li><span>친구에서 제외</span></li>
+                                </ul> -->
+                            </div>
+                            <div class="friend_item">
+                                <img src="/View/img/chat_profile.png" alt="">
+                                <p class="friend_name">친구2</p>
+                            </div>
+                            <div class="friend_item">
+                                <img src="/View/img/chat_profile.png" alt="">
+                                <p class="friend_name">친구3</p>
+                            </div>
+                            <div class="friend_item">
+                                <img src="/View/img/chat_profile.png" alt="">
+                                <p class="friend_name">친구4</p>
+                            </div>
+                            <div class="friend_item">
+                                <img src="/View/img/chat_profile.png" alt="">
+                                <p class="friend_name">친구5</p>
+                            </div>
+                            <div class="friend_item">
+                                <img src="/View/img/chat_profile.png" alt="">
+                                <p class="friend_name">친구6</p>
+                            </div>
+                            <div class="friend_item">
+                                <img src="/View/img/chat_profile.png" alt="">
+                                <p class="friend_name">친구7</p>
+                            </div>
+                            <div class="friend_item">
+                                <img src="/View/img/chat_profile.png" alt="">
+                                <p class="friend_name">친구8</p>
+                            </div>
+                            <div class="friend_item">
+                                <img src="/View/img/chat_profile.png" alt="">
+                                <p class="friend_name">친구9</p>
+                            </div>
+                            <div class="friend_item">
+                                <img src="/View/img/chat_profile.png" alt="">
+                                <p class="friend_name">친구10</p>
+                            </div>
+                            <div class="friend_item">
+                                <img src="/View/img/chat_profile.png" alt="">
+                                <p class="friend_name">친구11</p>
+                            </div>
+                            <div class="friend_item">
+                                <img src="/View/img/chat_profile.png" alt="">
+                                <p class="friend_name">친구12</p>
+                            </div>
+                            <div class="friend_item">
+                                <img src="/View/img/chat_profile.png" alt="">
+                                <p class="friend_name">친구13</p>
+                            </div>
+                            <div class="btn_show">
+                                <button class="show_more">더보기</button>
+                                <button class="show_less">간략히</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="recommend">
+                        <div class="title">
+                            <button id="btnToggleRecommend"><img src="/View/img/btn_triangle.png" alt=""></button>
+                            <div class="title_message">추천 상대</div>
+                        </div>
+                        <div class="friend_list" id="friends_recommend">
+                            <p><a href="">에이 (46세 / 비공개)</a></p>
+                            <p><a href="">김미란 (43세 / 비공개)</a></p>
+                            <p><a href="">김미란 (43세 / 비공개)</a></p>
+                            <p><a href="">진짜루 (45세 / 비공개)</a></p>
+                            <p><a href="">이성숙 (46세 / 비공개)</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer">
+                    <div class="footer_menu">
+                        <div class="friend_btn">
+                            <button type="button">친구 추가</button>
+                            <button type="button">친구 찾기</button>
+                        </div>
+                        <div class="emoji_left">
+                            <a href=""><img src="/View/img/refresh.png" alt=""></a>
+                            <a href=""><img src="/View/img/images.jfif" alt=""></a>
+                        </div>
+                        <div class="emoji_line">//</div>
+                        <div class="emoji_right">
+                            <a href=""><img src="/View/img/chat_pixel.png" alt=""></a>
+                            <a href=""><img src="/View/img/slaughter.png" alt=""></a>
+                            <a href=""><img src="/View/img/magnifying_glass_icon.png" alt=""></a>
+                            <a href=""><img src="/View/img/microphone.png" alt=""></a>
+                        </div>
+                        <div class="btn_next">
+                            <button type="button">>></button>
+                        </div>
+                    </div>
+                    <div class="footer_item">
+                        <div class="footer_music">
+                            <img src="/View/img/footer_music.png" alt="">
+                        </div>
+                        <div class="footer_ad">
+                            <img src="/View/img/footer_ad.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal -->
+    <div class="modal_container">
+        <div class="modal_content">
+            <ul class="modal_friends_menu">
+                <li><span>대화하기</span></li>
+                <li><span>쪽지보내기</span></li>
+                <li><span>파일보내기</span></li>
+                <li><hr class="modal_hr"></li>
+                <li>
+                    <span class="modal_item">
+                        <span>친구이동</span>
+                        <span>▶</span>
+                    </span>
+                </li>
+                <li>
+                    <span class="modal_item">
+                        <span>친구복사</span>
+                        <span>▶</span>
+                    </span>
+                </li>
+                <li><span>친구에서 제외</span></li>
+                <li><span>"헤.연.위"그룹에서 제외</span></li>
+                <li><span>블랙리스트에 추가</span></li>
+                <li><span>신고하기</span></li>
+                <li><hr></li>
+                <li><span>사용자 정보</span></li>
+                <li><span>홈피 보기</span></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
