@@ -157,7 +157,7 @@ REFERENCES users(user_id);
 ALTER TABLE user_group_memberships
 ADD CONSTRAINT fk_user_group_memberships_user_group_id
 FOREIGN KEY(user_group_id)
-REFERENCES user_groups(useruser_group_id_id);
+REFERENCES user_groups(user_group_id);
 
 ALTER TABLE mates
 ADD CONSTRAINT fk_mates_main_user_id
