@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../design/css/membership.css">
+    <link rel="stylesheet" href="/View/css/membership.css">
     <title>회원가입</title>
 </head>
 <body>
     <div class="main_container">
         <div class="head_main_container">
             <h1>회원가입</h1>
-            <img src="./img/logo_sarangbang.png" alt="" width="300px" height="120px">
+            <img src="/View/img/logo_sarangbang.png" alt="" width="300px" height="120px">
         </div>
         <div class="membership">
             <form action="">
@@ -64,7 +64,7 @@
         </div>
         <div class="footer_main_container">
             <a href=""><button type="submit">가입완료</button></a>
-            <a href="../design/login.html"><button type="button">취소</button></a>
+            <a href="/View/login.php"><button type="button">취소</button></a>
         </div>
     </form>
     </div>
