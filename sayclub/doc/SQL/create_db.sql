@@ -15,11 +15,12 @@ CREATE TABLE `admins` (
 );
 
 -- 2) email_verifications(이메일 인증) Table
---			- pk, 이메일, hash 이메일, 인증 만료 시간, 인증 완료 시간, 요청일자, 수정일자, 삭제일자
+--			- pk, 이메일, hash 이메일, 인증코드, 인증 만료 시간, 인증 완료 시간, 요청일자, 수정일자, 삭제일자
 CREATE TABLE `email_verifications` (
 	verify_pk			BIGINT(20) UNSIGNED		PRIMARY KEY		AUTO_INCREMENT
-	,verified_email		VARCHAR(255)			NOT NULL		COMMENT 'unique 체크'
+	,verified_email		VARCHAR(255)			NOT NULL
 	,hash_email			VARCHAR(100)			NOT NULL
+	,verified_code		CHAR(6)					NOT NULL
 	,email_expires_at	TIMESTAMP				NOT NULL		COMMENT '30분 후 만료'
 	,email_verified_at	TIMESTAMP
 	,created_at			TIMESTAMP				NOT NULL		DEFAULT CURRENT_TIMESTAMP()
@@ -28,23 +29,24 @@ CREATE TABLE `email_verifications` (
 );
 
 -- 	3) users(유저) Table
---			- pk, 탈퇴여부, 강퇴여부, 이름, 아이디, 이메일, 비밀번호, 닉네임, 전화번호1, 전화번호2, 전화번호3, 프로필사진, 생년월일, 프로필 문구, 로그인 상태, 마지막 로그인, 리프레쉬 토큰, 가입일자, 수정일자, 탈퇴일자
+--			- pk, 탈퇴여부, 강퇴여부, 이름, 아이디, 이메일, 비밀번호, 닉네임, 전화번호1, 전화번호2, 전화번호3, 프로필사진, 생년월일, 프로필 문구, 로그인 상태, 알람 활성화, 마지막 로그인, 리프레쉬 토큰, 가입일자, 수정일자, 탈퇴일자
 CREATE TABLE `users` (
 	user_id				BIGINT(20) UNSIGNED		PRIMARY KEY		AUTO_INCREMENT
 	,user_out_flg		CHAR(1)					NOT NULL		DEFAULT 0	COMMENT '0 : 디폴트, 1 : 탈퇴'
-	,admin_force_flg	CHAR(1)					NOT NULL		DEFAULT 0	COMMENT '0: 디폴트, 1 : 강퇴'
+	,admin_force_flg	CHAR(1)					NOT NULL		DEFAULT 0	COMMENT '0: 디폴트, 1 : 영구정지'
 	,user_name			VARCHAR(20)				NOT NULL
 	,user_account		VARCHAR(20)				NOT NULL
-	,user_email			VARCHAR(255)			NOT NULL		COMMENT '이메일? 아이디? verified_email  가져오기, fk연결은 딱히'
+	,user_email			VARCHAR(255)			NOT NULL
 	,user_password		VARCHAR(255)			NOT NULL
 	,user_nickname		VARCHAR(20)				NOT NULL		COMMENT '한글, 영어, 숫자, 특수기호'
 	,user_tel1			VARCHAR(3)				NOT NULL
 	,user_tel2			VARCHAR(4)				NOT NULL
 	,user_tel3			VARCHAR(4)				NOT NULL
 	,user_profile		VARCHAR(100)			NOT NULL		COMMENT '디폴트 로고사진'
-	,user_birth			DATE					NOT NULL		COMMENT '나이 계산'
+	,user_birth			DATE					NOT NULL
 	,user_msg			VARCHAR(30)
 	,user_status		CHAR(1)					NOT NULL		DEFAULT 0	COMMENT '0 : 로그아웃, 1: 로그인'
+	,user_alarm			CHAR(1)					NOT NULL		DEFAULT 0	COMMENT '0: 모두 활성화, 1: 쪽지만 비활성화, 2:  모든 알람 비활성화'
 	,user_last_login	TIMESTAMP				NOT NULL
 	,refresh_token		VARCHAR(512)
 	,created_at			TIMESTAMP				NOT NULL		DEFAULT CURRENT_TIMESTAMP()
@@ -69,7 +71,7 @@ CREATE TABLE `user_group_memberships` (
 	,user_id			BIGINT(20) UNSIGNED		NOT NULL
 	,user_group_id		BIGINT(20) UNSIGNED		NOT NULL
 	,membership_flg		CHAR(1)					NOT NULL		DEFAULT 0	COMMENT '0 : 일반 유저, 1 : 그룹장'
-	,membership_status	CHAR(1)					NOT NULL		DEFAULT 0	COMMENT '0 : 요청 대기중, 1: 수락, 2: 거절, 3:  강퇴'
+	,membership_status	CHAR(1)					NOT NULL		DEFAULT 0	COMMENT '0 : 요청 대기중, 1: 수락, 2: 거절, 3: 강퇴'
 	,created_at			TIMESTAMP				NOT NULL		DEFAULT CURRENT_TIMESTAMP()
 	,updated_at			TIMESTAMP				NOT NULL		DEFAULT CURRENT_TIMESTAMP()
 	,deleted_at			TIMESTAMP
@@ -81,7 +83,7 @@ CREATE TABLE `mates` (
 	mate_id				BIGINT(20) UNSIGNED		PRIMARY KEY	 	AUTO_INCREMENT
 	,main_user_id		BIGINT(20) UNSIGNED		NOT NULL
 	,related_user_id	BIGINT(20) UNSIGNED		NOT NULL
-	,mate_status		CHAR(1)					NOT NULL		DEFAULT 0	COMMENT '0 : 요청 대기 , 1 : 수락, 2 : 거절, 3 : 해제, 4 : 자동생성'
+	,mate_status		CHAR(1)					NOT NULL		DEFAULT 0	COMMENT '0 : 요청 대기 , 1 : 수락, 2 : 거절, 3 : 숨김, 4 : 차단, 5 : 자동생성'
 	,created_at			TIMESTAMP				NOT NULL		DEFAULT CURRENT_TIMESTAMP()
 	,updated_at			TIMESTAMP				NOT NULL		DEFAULT CURRENT_TIMESTAMP()
 	,deleted_at			TIMESTAMP
@@ -106,19 +108,18 @@ CREATE TABLE `direct_messages` (
 CREATE TABLE `chat_rooms` (
 	chat_room_id		BIGINT(20) UNSIGNED		PRIMARY KEY		AUTO_INCREMENT
 	,chat_room_name		VARCHAR(50)				NOT NULL
-	,chat_room_type		CHAR(1)					NOT NULL		DEFAULT 0	COMMENT '0 : 개인. 1: 그룹'
 	,created_at			TIMESTAMP				NOT NULL		DEFAULT CURRENT_TIMESTAMP()
 	,updated_at			TIMESTAMP				NOT NULL		DEFAULT CURRENT_TIMESTAMP()
 	,deleted_at			TIMESTAMP
 );
 
 -- 	9) chat_users(채팅방 참여 유저) Table
---			- pk, 채팅방 pk, 유저 pk, 내용, 역할, 참여일자, 수정일자, 탈퇴일자
+--			- pk, 채팅방 pk, 유저 pk, 내용, 알람 활성화, 참여일자, 수정일자, 탈퇴일자
 CREATE TABLE `chat_users` (
 	chat_user_id		BIGINT(20) UNSIGNED		PRIMARY KEY	 	AUTO_INCREMENT
 	,chat_room_id		BIGINT(20) UNSIGNED		NOT NULL
 	,user_id			BIGINT(20) UNSIGNED		NOT NULL
-	,chat_user_flg		CHAR(1)					NOT NULL		DEFAULT 0	COMMENT '0: 일반 유저, 1 : 방장'
+	,chat_alarm			CHAR(1)	NOT NULL		DEFAULT 0		COMMENT '0: 활성화, 1: 비활성화'
 	,created_at			TIMESTAMP				NOT NULL		DEFAULT CURRENT_TIMESTAMP()
 	,updated_at			TIMESTAMP				NOT NULL		DEFAULT CURRENT_TIMESTAMP()
 	,deleted_at			TIMESTAMP
@@ -147,6 +148,41 @@ CREATE TABLE notifications (
 	,created_at			TIMESTAMP				NOT NULL		DEFAULT CURRENT_TIMESTAMP()
 	,deleted_at			TIMESTAMP
 );
+
+-- 	12) user_reports(유저 신고) Table
+--			- pk, 신고한 유저 PK, 신고당한 유저 pk, 신고 타입, 생성일자, 수정일자, 삭제일자
+CREATE TABLE `user_reports` (
+	user_report_id		BIGINT(20) UNSIGNED		PRIMARY KEY		AUTO_INCREMENT
+	,main_user_id		BIGINT(20) UNSIGNED		NOT NULL
+	,reported_user_id	BIGINT(20) UNSIGNED		NOT NULL
+	,report_type		CHAR(1)					NOT NULL		DEFAULT 0	COMMENT '0 : 스팸, 유사투자자문 등
+1 : 음란, 성적 행위
+2 : 아동, 청소년 대상 성범죄
+3 : 욕설, 폭력, 혐오
+4 : 불법 상품, 서비스
+5 : 개인정보 무단 수집, 유포
+6 : 비정상적인 서비스 이용
+7 : 자살, 자해
+8 : 사기, 사칭
+9 : 명예훼손, 저작권 등 권리침해
+10 : 불법촬영물 등 유포'
+	,created_at		TIMESTAMP					NOT NULL		DEFAULT CURRENT_TIMESTAMP()
+	,updated_at		TIMESTAMP					NOT NULL		DEFAULT CURRENT_TIMESTAMP()
+	,deleted_at		TIMESTAMP	
+);
+
+-- 	13) user_controls(제재 이력) Table
+--			- pk, 유저 pk, 제재만료일자, 제재 사유, 생성일자, 수정일자, 삭제일자
+CREATE TABLE `user_controls` (
+	user_control_id		BIGINT(20) UNSIGNED		PRIMARY KEY		AUTO_INCREMENT
+	,user_id			BIGINT(20) UNSIGNED		NOT NULL
+	,expires_at			TIMESTAMP				NOT NULL		COMMENT '0 : 24시간, 1 : 3일, 2 : 일주일, 3 : 한 달, 4 : 영구 정지'
+	,user_control_type	CHAR(1)					NOT NULL		COMMENT 'user_report 신고 사유 동일'
+	,created_at			TIMESTAMP				NOT NULL		DEFAULT CURRENT_TIMESTAMP()
+	,updated_at			TIMESTAMP				NOT NULL		DEFAULT CURRENT_TIMESTAMP()
+	,deleted_at			TIMESTAMP
+);
+
 
 -- FK 추가
 ALTER TABLE user_group_memberships
@@ -213,3 +249,18 @@ ALTER TABLE notifications
 ADD CONSTRAINT fk_notifications_direct_msg_id
 FOREIGN KEY(direct_msg_id)
 REFERENCES direct_messages(direct_msg_id);
+
+ALTER TABLE user_reports
+ADD CONSTRAINT fk_user_reports_main_user_id
+FOREIGN KEY(main_user_id)
+REFERENCES users(user_id);
+
+ALTER TABLE user_reports
+ADD CONSTRAINT fk_user_reports_reported_user_id
+FOREIGN KEY(reported_user_id)
+REFERENCES users(user_id);
+
+ALTER TABLE user_controls
+ADD CONSTRAINT fk_user_controls_user_id
+FOREIGN KEY(user_id)
+REFERENCES users(user_id);
