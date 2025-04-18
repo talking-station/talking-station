@@ -183,7 +183,7 @@ li {
 
 .main_content{
   background-color: #FFFEFD;
-  height: 618px;
+  height: 656px;
   display: grid;
   grid-template-rows: 3fr 1fr;
 }
@@ -191,7 +191,7 @@ li {
 .friends_content{
   /* display: grid;
   grid-template-rows: 1fr 2fr; */
-  max-height: 400px;
+  max-height: 450px;
   overflow-y: scroll;
 }
 

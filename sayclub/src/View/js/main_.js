@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const BTN_TOGGLE_NOW = document.querySelector('#btnToggleNow'); // 친구 목록 ▼ 버튼
     const BTN_TOGGLE_NOW_IMG = document.querySelector('#btnToggleNow > img'); // 친구 목록 ▼ 이미지
-    const BTN_TOGGLE_RECOMMEND = document.querySelector('#btnToggleRecommend'); // 추천 상대 ▼ 버튼
-    const BTN_TOGGLE_RECOMMEND_IMG = document.querySelector('#btnToggleRecommend > img'); // 추천 상대 ▼ 이미지
+    // const BTN_TOGGLE_RECOMMEND = document.querySelector('#btnToggleRecommend'); // 추천 상대 ▼ 버튼
+    // const BTN_TOGGLE_RECOMMEND_IMG = document.querySelector('#btnToggleRecommend > img'); // 추천 상대 ▼ 이미지
 
     const FRIENDS_NOW = document.querySelector('#friends_now'); // 친구 전체 리스트
     const FRIENDS_RECOMMEND = document.querySelector('#friends_recommend'); // 친구 전체 리스트
@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const FRIEND_NAME = document.querySelectorAll('.friend_name');
     const MODAL = document.querySelector('.modal_container');
-
 
     const BTN_MORE = FRIENDS_NOW.querySelector('.show_more'); // 더보기 버튼
     const BTN_LESS = FRIENDS_NOW.querySelector('.show_less'); // 간략히 버튼
@@ -76,15 +75,15 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // 추천 친구 목록 토글
-    BTN_TOGGLE_RECOMMEND.addEventListener('click', () => {
-        FRIENDS_RECOMMEND.classList.toggle('friend_list_hide');
+    // BTN_TOGGLE_RECOMMEND.addEventListener('click', () => {
+    //     FRIENDS_RECOMMEND.classList.toggle('friend_list_hide');
         
-        if(FRIENDS_RECOMMEND.classList.contains('friend_list_hide')) {
-            BTN_TOGGLE_RECOMMEND_IMG.src = "/View/img/btn_triangle_updown.png";
-        } else {
-            BTN_TOGGLE_RECOMMEND_IMG.src = "/View/img/btn_triangle.png";
-        }
-    });
+    //     if(FRIENDS_RECOMMEND.classList.contains('friend_list_hide')) {
+    //         BTN_TOGGLE_RECOMMEND_IMG.src = "/View/img/btn_triangle_updown.png";
+    //     } else {
+    //         BTN_TOGGLE_RECOMMEND_IMG.src = "/View/img/btn_triangle.png";
+    //     }
+    // });
 
     // 더보기 버튼
     BTN_MORE.addEventListener('click', () => {

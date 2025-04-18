@@ -4,19 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/View/css/main.css">
-    <script src="/View/js/main.js" defer></script>
+    <!-- <script src="/View/js/main.js" defer></script> -->
+    <script src="/View/dist/main.js" defer></script>
     <title>사랑방</title>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <ul class="header_menu">
-                <li><a href="">일반</a></li>
-                <li><a href="">동작</a></li>
-                <li><a href="">친구</a></li>
-                <li><a href="">설정</a></li>
-                <li><a href="">정보</a></li>
-            </ul>
             <div class="header_box">
                 <!-- <img class="profile_img" src="./img/character_boy.png"> -->
                 <button><img class="profile_img" src="/View/img/character_boy.png"></button>
@@ -26,6 +20,7 @@
                             <p>www.talking-station.com</p>
                             <p>▶ OrOILoveYou (온라인)</p>
                             <p class="profile_comment">널 지켜줄게 영원히 !!!</p>
+                            <p class="profile_comment"><?php  ?></p>
                         </div>
                         <div class="header_icon">
                             <a href=""><img src="/View/img/home_pixel.png" alt=""> (0)</a>
@@ -54,7 +49,13 @@
                     <div class="friends">
                         <div class="title">
                             <button id="btnToggleNow"><img src="/View/img/btn_triangle.png" alt=""></button>
-                            <div class="title_message">친구 (0/3)</div>
+                            <!-- <div class="title_message">친구 (0/3)</div> -->
+                            <div class="title_message">친구 (
+                                <?php if($_GET['url'] === 'main') { ?> <button>hello</button> <?php } ?>
+                                / 
+                                <?php 3 ?>
+                                )
+                            </div>
                         </div>
                         <div class="friend_list" id="friends_now">
                             <div class="friend_item">
@@ -122,7 +123,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="recommend">
+                    <!-- <div class="recommend">
                         <div class="title">
                             <button id="btnToggleRecommend"><img src="/View/img/btn_triangle.png" alt=""></button>
                             <div class="title_message">추천 상대</div>
@@ -134,7 +135,7 @@
                             <p><a href="">진짜루 (45세 / 비공개)</a></p>
                             <p><a href="">이성숙 (46세 / 비공개)</a></p>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="footer">
                     <div class="footer_menu">
