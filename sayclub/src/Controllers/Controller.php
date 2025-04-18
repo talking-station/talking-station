@@ -5,7 +5,10 @@ namespace Controllers;
 class Controller {
     public function __construct(string $action) {
         // 세션 시작
-
+        if(session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        
         // 유저 로그인 권한 체크
 
         // 해당 action 호출

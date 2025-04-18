@@ -18,7 +18,7 @@ class Route {
             }
         } else if($url === 'main'){
             if($httpMethod === 'GET'){
-                new MateController('main');
+                new MateController('index');
             }
         }
     }

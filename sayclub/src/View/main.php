@@ -12,15 +12,14 @@
     <div class="container">
         <div class="header">
             <div class="header_box">
-                <!-- <img class="profile_img" src="./img/character_boy.png"> -->
-                <button><img class="profile_img" src="/View/img/character_boy.png"></button>
+                <?php $user = $this->getUserInfo(); ?>
+                <button><img class="profile_img" src="<?php $user['user_profile'] ?>"></button>
                 <div class="header_content">
                     <div class="header_box_title">
                         <div class="header_right">
                             <p>www.talking-station.com</p>
-                            <p>▶ OrOILoveYou (온라인)</p>
-                            <p class="profile_comment">널 지켜줄게 영원히 !!!</p>
-                            <p class="profile_comment"><?php  ?></p>
+                            <p>▶ <?php echo $user['user_nickname'] ?> (온라인)</p>
+                            <p class="profile_comment"><?php echo $user['user_msg'] ?></p>
                         </div>
                         <div class="header_icon">
                             <a href=""><img src="/View/img/home_pixel.png" alt=""> (0)</a>
@@ -49,93 +48,26 @@
                     <div class="friends">
                         <div class="title">
                             <button id="btnToggleNow"><img src="/View/img/btn_triangle.png" alt=""></button>
-                            <!-- <div class="title_message">친구 (0/3)</div> -->
                             <div class="title_message">친구 (
-                                <?php if($_GET['url'] === 'main') { ?> <button>hello</button> <?php } ?>
+                                <?php echo $this->getOnlineFriends(); ?>
                                 / 
-                                <?php 3 ?>
+                                <?php echo $this->getTotalFriends(); ?>
                                 )
                             </div>
                         </div>
                         <div class="friend_list" id="friends_now">
+                            <?php foreach($this->getArrMateList() as $item) { ?>
                             <div class="friend_item">
-                                <img src="/View/img/chat_profile.png" alt="">
-                                <p class="friend_name">친구1</p>
-                                <!-- <ul class="freind_menu">
-                                    <li><span>대화하기</span></li>
-                                    <li><span>쪽지보내기</span></li>
-                                    <li><span>친구이동</span></li>
-                                    <li><span>친구복사</span></li>
-                                    <li><span>친구에서 제외</span></li>
-                                </ul> -->
+                                <img src="<?php echo $item['user_profile']; ?>" alt="">
+                                <p class="friend_name"><?php echo $item['user_nickname']; ?></p>
                             </div>
-                            <div class="friend_item">
-                                <img src="/View/img/chat_profile.png" alt="">
-                                <p class="friend_name">친구2</p>
-                            </div>
-                            <div class="friend_item">
-                                <img src="/View/img/chat_profile.png" alt="">
-                                <p class="friend_name">친구3</p>
-                            </div>
-                            <div class="friend_item">
-                                <img src="/View/img/chat_profile.png" alt="">
-                                <p class="friend_name">친구4</p>
-                            </div>
-                            <div class="friend_item">
-                                <img src="/View/img/chat_profile.png" alt="">
-                                <p class="friend_name">친구5</p>
-                            </div>
-                            <div class="friend_item">
-                                <img src="/View/img/chat_profile.png" alt="">
-                                <p class="friend_name">친구6</p>
-                            </div>
-                            <div class="friend_item">
-                                <img src="/View/img/chat_profile.png" alt="">
-                                <p class="friend_name">친구7</p>
-                            </div>
-                            <div class="friend_item">
-                                <img src="/View/img/chat_profile.png" alt="">
-                                <p class="friend_name">친구8</p>
-                            </div>
-                            <div class="friend_item">
-                                <img src="/View/img/chat_profile.png" alt="">
-                                <p class="friend_name">친구9</p>
-                            </div>
-                            <div class="friend_item">
-                                <img src="/View/img/chat_profile.png" alt="">
-                                <p class="friend_name">친구10</p>
-                            </div>
-                            <div class="friend_item">
-                                <img src="/View/img/chat_profile.png" alt="">
-                                <p class="friend_name">친구11</p>
-                            </div>
-                            <div class="friend_item">
-                                <img src="/View/img/chat_profile.png" alt="">
-                                <p class="friend_name">친구12</p>
-                            </div>
-                            <div class="friend_item">
-                                <img src="/View/img/chat_profile.png" alt="">
-                                <p class="friend_name">친구13</p>
-                            </div>
+                            <?php } ?>
                             <div class="btn_show">
                                 <button class="show_more">더보기</button>
                                 <button class="show_less">간략히</button>
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="recommend">
-                        <div class="title">
-                            <button id="btnToggleRecommend"><img src="/View/img/btn_triangle.png" alt=""></button>
-                            <div class="title_message">추천 상대</div>
-                        </div>
-                        <div class="friend_list" id="friends_recommend">
-                            <p><a href="">에이 (46세 / 비공개)</a></p>
-                            <p><a href="">김미란 (43세 / 비공개)</a></p>
-                            <p><a href="">김미란 (43세 / 비공개)</a></p>
-                            <p><a href="">진짜루 (45세 / 비공개)</a></p>
-                            <p><a href="">이성숙 (46세 / 비공개)</a></p>
-                        </div>
-                    </div> -->
                 </div>
                 <div class="footer">
                     <div class="footer_menu">
