@@ -30,7 +30,7 @@
 .label {
     background-color: #95D264;
     border: solid 1px #000;
-    width: 90px;
+    width: 100px;
     height: 30px;
     text-align: center;
 }
@@ -92,5 +92,9 @@ button {
     box-shadow: #23291f;
     width: 80px;
     height: 30px;
+}
 
+/* 에러 메시지 */
+.text_danger {
+    color: #ff0000;
 }

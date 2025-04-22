@@ -2,6 +2,7 @@
 
 namespace Controllers;
 use Controllers\Controller;
+use Lib\UserValidator;
 use Models\User;
 
 class UserController extends Controller {   
@@ -35,5 +36,28 @@ class UserController extends Controller {
 
 
         return 'main.php';
+    }
+
+    // 회원 가입 페이지 이동
+    public function goRegistration() {
+        return 'registration.php';
+    }
+
+    // 회원 가입 처리
+    public function registration() {
+        $requestData = [
+            'user_account' => isset($_POST['user_account']) ? $_POST['user_account'] : '',
+            'user_password' => isset($_POST['user_password']) ? $_POST['user_password'] : '',
+            'user_password_chk' => isset($_POST['user_password_chk']) ? $_POST['user_password_chk'] : '',
+            'user_name' => isset($_POST['user_name']) ? $_POST['user_name'] : '',
+        ];
+
+        // 유효성 체크
+        $resultValidator = UserValidator::chkValidator($requestData);
+        if(count($resultValidator) > 0) {
+            $this->arrErrorMsg = $resultValidator;
+            return 'registration.php';
+        }
+        return 'Location: /login';
     }
 }

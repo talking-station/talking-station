@@ -22,6 +22,12 @@ class Route {
             if($httpMethod === 'GET'){
                 new MateController('index');
             }
+        } else if($url === 'registration'){
+            if($httpMethod === 'GET'){
+                new UserController('goRegistration');
+            } else if($httpMethod === 'POST') {
+                new UserCOntroller('registration');
+            }
         } else if($url === 'diary'){
             if($httpMethod === 'GET'){
                 new DiaryController('main');

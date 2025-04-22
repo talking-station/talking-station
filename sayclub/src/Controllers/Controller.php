@@ -3,6 +3,8 @@
 namespace Controllers;
 
 class Controller {
+    protected $arrErrorMsg = [];
+    
     public function __construct(string $action) {
         // 세션 시작
         if(session_status() === PHP_SESSION_NONE) {
