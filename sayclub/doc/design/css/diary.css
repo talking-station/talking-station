@@ -1,0 +1,192 @@
+/* 공통 */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+a:visited {
+    color: #000;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+}
+
+input {
+    border: none;
+}
+
+.container{
+    width: 650px;
+    height: 900px;
+    background-color: #F8F5EC;
+    margin: 0 auto;
+}
+
+li {
+    list-style-type: none;
+}
+
+
+/* main */
+
+.main{
+    display: grid;
+    grid-template-columns:80px 1fr;
+}
+
+.main_side{
+    padding-left: 10px;
+}
+
+.main_side_bar{
+    list-style-type: none;
+}
+
+.main_side_bar div{
+    height: 80px;
+    margin-bottom: 5px;
+}
+
+.main_side_bar a {
+    color: #fff;
+    font-weight: 600;
+    font-size: .9rem;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 3px;
+}
+
+.main_side_bar div:nth-child(4) {
+    background-image: url(../img/side_bar_white.png);
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+.main_side_bar div:nth-child(4) a {
+    color: #4E8729;
+}
+
+.main_side_bar div:nth-child(n + 1):nth-child(-n + 3) {
+    background-image: url(../img/side_bar_green.png);
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+
+/* main_cotent */
+
+.main_content {
+    background-color: #FFFEFD;
+    height: 618px;
+    display: grid;
+    grid-template-rows: 3fr 1fr;
+}
+
+.diary_box {
+    max-height: 450px;
+    overflow-y: scroll;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.insert_box {
+    background-color: #F0FDD1;
+    width: 100%;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+.diary_content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width:100%;
+    margin-top: 5px;
+}
+
+.diary_list {
+    width: 100%;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+.diary_title {
+    border-bottom: 1px solid #4E8729;
+    padding-bottom: 5px;
+}
+
+.diary_textarea {
+    resize: none;
+    border: none;
+    width: 80%;
+    height: 100px;
+    color: #F0FDD1; /* 확인용 */
+    background-color: #e8e8e8; /* 확인용 */ 
+}
+
+.btn_insert {
+    width: 70px;
+    height: 70px;
+    border-radius: 50px;
+    background-color: #fff;
+    color: #4E8729;
+    font-weight: 600;
+}
+
+.btn_box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn_box button {
+    width: 70px;
+    height: 40px;
+    border-radius: 50px;
+    background-color: #F0FDD1;
+    color: #4E8729;
+    font-weight: 600;
+}
+
+
+/* 스크롤바 */
+.diary_box::-webkit-scrollbar {
+    width: 8px;
+}
+
+.diary_box::-webkit-scrollbar-thumb {
+    background-color: #adafb180;
+    background-clip: border-box;
+    border: 2px solid transparent;
+}
+
+.diary_box::-webkit-scrollbar-track {
+    box-shadow: inset 0px 0px 5px white;
+}
+
+/* footer */
+.footer_item{
+    margin: 0 auto;
+}
+
+.footer_ad{
+    text-align: center;
+    border-top: 1px solid #CDCBCC;
+    padding: 5px;
+}
+
+.footer_ad img{
+    max-width: 400px;
+    max-height: 100px;
+}

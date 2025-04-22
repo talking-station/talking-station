@@ -4,6 +4,7 @@ namespace Controllers;
 use Controllers\Controller;
 use Models\Mate;
 use Models\User;
+use Models\UserGroupMembership;
 
 session_start();
 
@@ -16,6 +17,10 @@ class MateController extends Controller {
     private $main_user_id = '';
     private $totalFriends = 0;
     private $onlineFriends = 0;
+
+    private $user_id = '';
+    private $related_user_id = [];
+    private $arrUserGroupMemberList = [];
     
 
     // getter
@@ -34,6 +39,10 @@ class MateController extends Controller {
     public function getOnlineFriends() {
         return $this->onlineFriends;
     }
+    
+    public function getArrUserGroupMemberList() {
+        return $this->arrUserGroupMemberList;
+    }
 
     // setter
     public function setUserInfo($userInfo) {
@@ -44,9 +53,14 @@ class MateController extends Controller {
         $this->arrMateList = $arrMateList;
     }
 
+    public function setArrUserGroupMemberList($arrUserGroupMemberList) {
+        $this->arrUserGroupMemberList = $arrUserGroupMemberList;
+    }
+
+
     protected function index() {
         // 로그인한 유저 확인
-        $_SESSION['user_account'] = 'test1';
+        $_SESSION['user_account'] = 'test01'; // 테스트용
         $requestData = [
             'user_account' => $_SESSION['user_account']
         ];
@@ -85,13 +99,24 @@ class MateController extends Controller {
             if($item['user_status'] === '1') {
                 $onlineFriends++;
             }
+            $related_user_id[] = $item['related_user_id'];
         }
         $this->onlineFriends = $onlineFriends;
+        $this->related_user_id = $related_user_id;
 
-        // var_dump($userInfo);
-        // var_dump($mateList);
-        // var_dump($this->totalFriends);
-        // var_dump($onlineFriends);
+        // 유저 그룹별 친구 목록 획득
+        $this->user_id = $userInfo['user_id'] ? $userInfo['user_id'] : '';
+
+        $requestUserGroupData = [
+            'user_id' => $this->user_id
+        ];
+
+        $userGroup = new UserGroupMembership();
+        $groupList = $userGroup->getArrUserGroupMemberList($requestUserGroupData);
+        $this->setArrUserGroupMemberList($groupList);
+
+        // var_dusmp($mateList);
+        // var_dump($related_user_id);
         return 'main.php';
     }
 }

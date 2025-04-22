@@ -11,6 +11,7 @@
 <body>
     <div class="container">
         <div class="header">
+            <?php require_once('View/header.php'); ?>
             <div class="header_box">
                 <?php $user = $this->getUserInfo(); ?>
                 <button><img class="profile_img" src="<?php $user['user_profile'] ?>"></button>
@@ -35,12 +36,10 @@
         <div class="main">
             <div class="main_side">
                 <div class="main_side_bar">
-                    <div><a href="">TACHY</a></div>
-                    <div><a href="">FILE</a></div>
-                    <div><a href="">HOMPY</a></div>
-                    <div><a href="">MALL</a></div>
-                    <div><a href="">GAME</a></div>
-                    <div><a href="">G마켓</a></div>
+                    <div><a href="">홈</a></div>
+                    <div><a href="">채팅</a></div>
+                    <div><a href="">쪽지</a></div>
+                    <div><a href="">다이어리</a></div>
                 </div>
             </div>
             <div class="main_content">
@@ -111,7 +110,7 @@
                 <li><span>쪽지보내기</span></li>
                 <li><span>파일보내기</span></li>
                 <li><hr class="modal_hr"></li>
-                <li>
+                <!-- <li>
                     <span class="modal_item">
                         <span>친구이동</span>
                         <span>▶</span>
@@ -122,14 +121,19 @@
                         <span>친구복사</span>
                         <span>▶</span>
                     </span>
-                </li>
-                <li><span>친구에서 제외</span></li>
-                <li><span>"헤.연.위"그룹에서 제외</span></li>
-                <li><span>블랙리스트에 추가</span></li>
+                </li> -->
+                <li><span>친구 숨기기</span></li>
+                <li><span>친구 차단</span></li>
+                <?php 
+                    $userGroupList = $this->getArrUserGroupMemberList();
+                    if(!empty($userGroupList)) {  
+                        foreach($userGroupList as $list) { ?>
+                            <li><span><?php echo $list['user_group_name']." 그룹에서 제외"; ?></span></li>
+                        <?php } ?>
+                <?php } ?>
                 <li><span>신고하기</span></li>
                 <li><hr></li>
-                <li><span>사용자 정보</span></li>
-                <li><span>홈피 보기</span></li>
+                <li><span>친구 정보</span></li>
             </ul>
         </div>
     </div>

@@ -183,6 +183,17 @@ CREATE TABLE `user_controls` (
 	,deleted_at			TIMESTAMP
 );
 
+-- 14) diaries(다이어리) Table
+--			- pk, 유저 pk, 내용, 작성일자, 수정일자, 삭제일자
+CREATE TABLE `diaries` (
+	diary_id			BIGINT(20) UNSIGNED		PRIMARY KEY		AUTO_INCREMENT
+	,user_id			BIGINT(20) UNSIGNED		NOT NULL
+	,diary_content		VARCHAR(250)			NOT NULL
+	,created_at			TIMESTAMP				NOT NULL		DEFAULT CURRENT_TIMESTAMP()
+	,updated_at			TIMESTAMP				NOT NULL		DEFAULT CURRENT_TIMESTAMP()
+	,deleted_at			TIMESTAMP
+);
+
 
 -- FK 추가
 ALTER TABLE user_group_memberships
@@ -262,5 +273,10 @@ REFERENCES users(user_id);
 
 ALTER TABLE user_controls
 ADD CONSTRAINT fk_user_controls_user_id
+FOREIGN KEY(user_id)
+REFERENCES users(user_id);
+
+ALTER TABLE diaries
+ADD CONSTRAINT fk_diaries_user_id
 FOREIGN KEY(user_id)
 REFERENCES users(user_id);

@@ -1,5 +1,7 @@
 <?php
 namespace Route;
+
+use Controllers\DiaryController;
 use Controllers\UserController;
 use Controllers\MateController;
 
@@ -19,6 +21,10 @@ class Route {
         } else if($url === 'main'){
             if($httpMethod === 'GET'){
                 new MateController('index');
+            }
+        } else if($url === 'diary'){
+            if($httpMethod === 'GET'){
+                new DiaryController('main');
             }
         }
     }
