@@ -60,7 +60,7 @@ class MateController extends Controller {
 
     protected function index() {
         // 로그인한 유저 확인
-        $_SESSION['user_account'] = 'test01'; // 테스트용
+        // $_SESSION['user_account'] = 'test01'; // 테스트용
         $requestData = [
             'user_account' => $_SESSION['user_account']
         ];
