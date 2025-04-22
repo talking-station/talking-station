@@ -22,8 +22,8 @@ img {
 }
 
 .login {
-    /* width: 400px; */
-    padding: 100px;
+    width: 400px;
+    padding: 7px;
     margin: auto;
     display: grid;
     /* grid-template-columns: repeat(3, 1fr); */
@@ -31,6 +31,11 @@ img {
     grid-template-columns: repeat(1, 80px 1fr 70px);
     gap: 10px;
     
+}
+
+.error_msg {
+    margin: auto;
+    color: #ff0000;
 }
 
 a {
