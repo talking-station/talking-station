@@ -24,25 +24,27 @@ class Route {
                 new UserController('login');
             }
         }
-        
+        // 로그인 후 친구 리스트
         else if($url === 'main') {
             if($httpMethod === 'GET'){
                 new MateController('index');
             }
-        } else if($url === 'registration'){
+        } 
+        // 회원가입
+        else if($url === 'registration'){
             if($httpMethod === 'GET'){
                 new UserController('goRegistration');
             } else if($httpMethod === 'POST') {
                 new UserCOntroller('registration');
             }
-        } else if($url === 'diary'){
+        }
+        // 다이어리
+        else if($url === 'diary'){
             if($httpMethod === 'GET'){
-                new DiaryController('main');
+                new DiaryController('index');
             }
         }
-
-        
-
+        // 채팅방
         else if($url === 'chat') {
             return 'chat.php';
         }

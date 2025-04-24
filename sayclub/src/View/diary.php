@@ -9,15 +9,14 @@
 </head>
 <body>
     <div class="container">
-        
-    <?php require_once('View/header.php'); ?>
+        <?php require_once('View/header.php'); ?>
         <div class="main">
             <div class="main_side">
                 <div class="main_side_bar">
-                    <div><a href="">홈</a></div>
+                    <div><a href="/main">홈</a></div>
                     <div><a href="">채팅</a></div>
                     <div><a href="">쪽지</a></div>
-                    <div><a href="">다이어리</a></div>
+                    <div><a href="/diary">다이어리</a></div>
                 </div>
             </div>
             <div class="main_content">
@@ -30,20 +29,22 @@
                     </div>
                     <div class="diary_list">
                         <p class="diary_title">나의 일기</p>
+                        <?php foreach($this->getDiaryList() as $item) { ?>
                         <div class="diary_content">
-                            <textarea class="diary_textarea"></textarea>
+                            <textarea class="diary_textarea" readonly><?php echo $item['diary_content'] ?></textarea>
                             <div class="btn_box">
                                 <button type="button">수정</button>
                                 <button type="button">삭제</button>
                             </div>
                         </div>
-                        <div class="diary_content">
+                        <?php } ?>
+                        <!-- <div class="diary_content">
                             <textarea class="diary_textarea"></textarea>
                             <div class="btn_box">
                                 <button type="button">수정</button>
                                 <button type="button">삭제</button>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="footer">

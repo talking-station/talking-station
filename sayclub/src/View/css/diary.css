@@ -100,10 +100,11 @@ li {
 }
 
 .insert_box {
-    background-color: #F0FDD1;
     width: 100%;
     padding: 10px;
     margin: 0 auto;
+    /* 확인용 */ 
+    /* background-color: #F0FDD1; */
 }
 
 .diary_content {
@@ -112,13 +113,14 @@ li {
     align-items: center;
     gap: 10px;
     width:100%;
-    margin-top: 5px;
+    margin-top: 10px;
 }
 
 .diary_list {
     width: 100%;
     padding: 10px;
     margin: 0 auto;
+    /* background-color: #F0FDD1; */
 }
 
 .diary_title {
@@ -128,19 +130,24 @@ li {
 
 .diary_textarea {
     resize: none;
-    border: none;
+    /* border: none; */
+    border: 1px solid #4E8729;
+    border-radius: 10px;
+    outline: none;
     width: 80%;
-    height: 100px;
-    color: #F0FDD1; /* 확인용 */
-    background-color: #e8e8e8; /* 확인용 */ 
+    min-height: 100px;
+    padding: 10px;
+    /* 확인용 */ 
+    /* background-color: #e8e8e8;  */
 }
 
 .btn_insert {
     width: 70px;
-    height: 70px;
+    height: 50px;
     border-radius: 50px;
-    background-color: #fff;
-    color: #4E8729;
+    background-color: #b9d1aa;
+    color: #1d3f07;
+    font-size: 17px;
     font-weight: 600;
 }
 

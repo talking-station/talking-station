@@ -45,13 +45,13 @@ class UserController extends Controller {
         $resultUserInfo = $userModel->getUserInfo($prepare);
 
         // 유저 존재 유무 체크
-        if(!$resultUserInfo) {
-            $this->arrErrorMsg[] = '존재하지 않는 사용자 입니다';
-        } else if(!password_verify($requestData['user_password'], $resultUserInfo['user_password'])) {
-            //password_verify : 패스워드 확인(유저의 패스워드 - 데이터베이스의 패스워드)            
-            $this->arrErrorMsg[]= '패스워드가 일치하지 않습니다';
-            return 'login.php';
-        }
+        // if(!$resultUserInfo) {
+        //     $this->arrErrorMsg[] = '존재하지 않는 사용자 입니다';
+        // } else if(!password_verify($requestData['user_password'], $resultUserInfo['user_password'])) {
+        //     //password_verify : 패스워드 확인(유저의 패스워드 - 데이터베이스의 패스워드)            
+        //     $this->arrErrorMsg[]= '패스워드가 일치하지 않습니다';
+        //     return 'login.php';
+        // }
 
 
         // 세션에 user_account 저장

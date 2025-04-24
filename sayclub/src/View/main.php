@@ -36,10 +36,10 @@
         <div class="main">
             <div class="main_side">
                 <div class="main_side_bar">
-                    <div><a href="">홈</a></div>
+                    <div><a href="/main">홈</a></div>
                     <div><a href="">채팅</a></div>
                     <div><a href="">쪽지</a></div>
-                    <div><a href="">다이어리</a></div>
+                    <div><a href="/diary">다이어리</a></div>
                 </div>
             </div>
             <div class="main_content">
