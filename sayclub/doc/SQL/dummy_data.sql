@@ -1,5 +1,5 @@
 INSERT INTO users(user_name, user_account, user_email, user_password, user_nickname, user_tel1, user_tel2, user_tel3, user_profile, user_birth, user_last_login)
-VALUES('test01', 'test1', 'test1@naver.com', 'qwer1234', 'test01', '010', '1111', '1111', 'test01', '2000-01-01', NOW())
+VALUES('test01', 'test01', 'test1@naver.com', 'qwer1234', 'test01', '010', '1111', '1111', 'test01', '2000-01-01', NOW())
 ,('test02', 'test02', 'test02@naver.com', 'qwer1234', 'test02', '010', '2222', '2222', 'test02', '2000-01-02', NOW())
 ,('test03', 'test03', 'test03@naver.com', 'qwer1234', 'test03', '010', '3333', '3333', 'test03', '2000-01-03', NOW())
 ,('test04', 'test04', 'test04@naver.com', 'qwer1234', 'test04', '010', '4444', '4444', 'test04', '2000-01-04', NOW())
