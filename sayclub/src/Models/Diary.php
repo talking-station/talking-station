@@ -25,4 +25,27 @@ class Diary extends Model {
             echo 'Diary->getDiaryList(), '.$th->getMessage();
         }
     }
+
+    public function insertDiary(array $paramArr) {
+        try {
+            $sql =
+                ' INSERT INTO diaries( '
+                .'      user_id '
+                .'      ,diary_content '
+                .' ) '
+                .' VALUES( '
+                .'      :user_id '
+                .'      ,:diary_content '
+                .' ) '
+            ;
+
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute($paramArr);
+            // return $stmt->fetch();
+            return $stmt->rowCount();
+        } catch(Throwable $th) {
+            echo 'Diary->insertDiary(), '.$th->getMessage();
+            exit;
+        }
+    }
 }

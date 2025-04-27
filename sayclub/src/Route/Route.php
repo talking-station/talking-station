@@ -42,6 +42,8 @@ class Route {
         else if($url === 'diary'){
             if($httpMethod === 'GET'){
                 new DiaryController('index');
+            } else if($httpMethod === 'POST'){
+                new DiaryController('store');
             }
         }
         // 채팅방

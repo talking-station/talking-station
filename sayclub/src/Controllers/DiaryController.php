@@ -46,9 +46,28 @@ class DiaryController extends Controller {
         // $diaryList = $diary->getDiaryList(['user_id' => $this->user_id]); 
         $this->setDiaryList($diary->getDiaryList(['user_id' => $this->user_id]));
 
-        // var_dump($userInfo);
-        // var_dump($diaryList);
-
         return 'diary.php';
+    }
+
+    public function store() {
+        $requestData = [
+            // 'user_id' => $_SESSION['user_id']
+            'user_id' => 1
+            ,'diary_content' => $_POST['diary_content']
+        ];
+
+        $diaryModel = new Diary();
+        $diaryModel->beginTransaction();
+        $resultDiaryInsert = $diaryModel->insertDiary($requestData);
+
+        if($resultDiaryInsert !== 1) {
+            $diaryModel->rollBack();
+            $this->arrErrorMsg[] = '게시글 작성 실패';
+            return 'diary.php';
+        }
+
+        $diaryModel->commit();
+
+        return 'Location: /diary';
     }
 }
